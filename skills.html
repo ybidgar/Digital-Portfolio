@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills - Yashwant Bidgar</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="index.html" class="logo">Portfolio</span></a>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="skills.html" class="active">Skills</a></li>
+          <li><a href="projects.html">Projects</a></li>
+          <li><a href="certificates.html">Certificates</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="mobile-nav-toggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container">
+      <section>
+        <h2 class="page-title">My Skills</h2>
+        
+        <p style="margin-bottom: 40px;">As a first-year entc engineering student, I've developed a diverse set of technical and soft skills through coursework and projects. Here's an overview of my capabilities:</p>
+        
+        <div class="skills-container">
+          <!-- Technical Skills -->
+          <div class="skill-category">
+            <h3><i class="fas fa-cogs"></i> Technical Skills</h3>
+            
+            <div class="skill-bar">
+              <div class="skill-info">
+                <span>Good with handling Arduino and working with it.</span>
+              </div>
+            </div>
+            
+            <div class="skill-bar">
+              <div class="skill-info">
+                <span>English Speaking</span>
+              </div>
+             
+            </div>
+            
+            <div class="skill-bar">
+              <div class="skill-info">
+                <span>Problem Solving</span>
+                
+              </div>
+
+            </div>
+                      
+            
+          </div>
+          
+          <!-- Software Skills -->
+          <div class="skill-category">
+            <h3><i class="fas fa-laptop-code"></i> Software Proficiency</h3>
+            
+            <div class="skill-bar">
+              <div class="skill-info">
+                <span>Basic Programming</span>
+                
+              </div>
+              
+            </div>
+            
+            <div class="skill-bar">
+              <div class="skill-info">
+                <span>HTML and CSS</span>
+                
+              </div>
+              
+            </div>
+            
+            <div class="skill-bar">
+              <div class="skill-info">
+                <span>WEB DEVELOPMENT</span>
+                
+              </div>
+              
+            </div>
+        </main>
+        
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Yashwant Bidgar</h3>
+          <p>ENTC Engineering Student</p>
+          <p>MIT Academy of Engineering</p>
+          <div class="footer-social">
+            <a href="https://linkedin.com/in/johnsmith" target="_blank">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="skills.html">Skills</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="certificates.html">Certificates</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3>Contact Info</h3>
+          <div class="contact-detail">
+            <i class="fas fa-envelope"></i>
+            <span>yashwantbidgar@gmail.com</span>
+          </div>
+          <div class="contact-detail">
+            <i class="fas fa-phone"></i>
+            <span>+91 8668535622</span>
+          </div>
+          <div class="contact-detail">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Pune</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 Yashwant Bidgar. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    // Mobile menu toggle
+    const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    mobileNavToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      const icon = mobileNavToggle.querySelector('i');
+      if (navLinks.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+      } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+    });
+    
+    // Animate skill bars on scroll
+    const skillBars = document.querySelectorAll('.progress');
+    
+    function animateSkillBars() {
+      skillBars.forEach(bar => {
+        const width = bar.style.width;
+        bar.style.width = '0';
+        setTimeout(() => {
+          bar.style.width = width;
+        }, 300);
+      });
+    }
+    
+    // Use Intersection Observer to trigger animation when skills section comes into view
+    const skillsSection = document.querySelector('.skills-container');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateSkillBars();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    if (skillsSection) {
+      observer.observe(skillsSection);
+    }
+  </script>
+</body>
+</html>
